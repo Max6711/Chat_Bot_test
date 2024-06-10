@@ -1,0 +1,424 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "are,how,you": {
+            "intent": "greetings.howareyou",
+            "domain": "default"
+          },
+          "bye": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "is,name,what,your": {
+            "intent": "identity.name",
+            "domain": "default"
+          },
+          "are,who,you": {
+            "intent": "identity.name",
+            "domain": "default"
+          },
+          "can,do,what,you": {
+            "intent": "capabilities",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.hello": "default",
+          "greetings.howareyou": "default",
+          "greetings.bye": "default",
+          "identity.name": "default",
+          "capabilities": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "how are you",
+            "intent": "greetings.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "bye",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is your name",
+            "intent": "identity.name"
+          },
+          {
+            "domain": "default",
+            "utterance": "who are you",
+            "intent": "identity.name"
+          },
+          {
+            "domain": "default",
+            "utterance": "what can you do",
+            "intent": "capabilities"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "how": 1,
+              "are": 1,
+              "you": 1,
+              "bye": 1,
+              "what": 1,
+              "is": 1,
+              "your": 1,
+              "name": 1,
+              "who": 1,
+              "can": 1,
+              "do": 1
+            },
+            "intents": {
+              "greetings.hello": 1,
+              "greetings.howareyou": 1,
+              "greetings.bye": 1,
+              "identity.name": 1,
+              "capabilities": 1
+            },
+            "intentFeatures": {
+              "greetings.hello": {
+                "hello": 1,
+                "hi": 1
+              },
+              "greetings.howareyou": {
+                "how": 1,
+                "are": 1,
+                "you": 1
+              },
+              "greetings.bye": {
+                "bye": 1
+              },
+              "identity.name": {
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "name": 1,
+                "who": 1,
+                "are": 1,
+                "you": 1
+              },
+              "capabilities": {
+                "what": 1,
+                "can": 1,
+                "you": 1,
+                "do": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greetings.hello"
+              ],
+              "hi": [
+                "greetings.hello"
+              ],
+              "how": [
+                "greetings.howareyou"
+              ],
+              "are": [
+                "greetings.howareyou",
+                "identity.name"
+              ],
+              "you": [
+                "greetings.howareyou",
+                "identity.name",
+                "capabilities"
+              ],
+              "bye": [
+                "greetings.bye"
+              ],
+              "what": [
+                "identity.name",
+                "capabilities"
+              ],
+              "is": [
+                "identity.name"
+              ],
+              "your": [
+                "identity.name"
+              ],
+              "name": [
+                "identity.name"
+              ],
+              "who": [
+                "identity.name"
+              ],
+              "can": [
+                "capabilities"
+              ],
+              "do": [
+                "capabilities"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "how",
+                "are",
+                "you",
+                "bye",
+                "what",
+                "is",
+                "your",
+                "name",
+                "who",
+                "can",
+                "do"
+              ],
+              "intents": [
+                "greetings.hello",
+                "greetings.howareyou",
+                "greetings.bye",
+                "identity.name",
+                "capabilities"
+              ],
+              "perceptrons": [
+                [
+                  9.150906562805176,
+                  9.151239395141602,
+                  -0.957891583442688,
+                  -1.8178116083145142,
+                  -2.336277961730957,
+                  -4.813972473144531,
+                  -1.6422386169433594,
+                  -1.1238939762115479,
+                  -1.1238939762115479,
+                  -1.1238939762115479,
+                  -0.8582256436347961,
+                  -0.5181536078453064,
+                  -0.5181536078453064,
+                  5.015100208320647
+                ],
+                [
+                  -0.3930361866950989,
+                  -0.3915759325027466,
+                  8.504561424255371,
+                  3.022369384765625,
+                  2.2021028995513916,
+                  -0.4699527323246002,
+                  -0.9650711417198181,
+                  -0.12585186958312988,
+                  -0.12585186958312988,
+                  -0.12585186958312988,
+                  -5.48748779296875,
+                  -0.8176900148391724,
+                  -0.8176900148391724,
+                  0.3973831106882325
+                ],
+                [
+                  -2.396023750305176,
+                  -2.3791322708129883,
+                  -0.4103628695011139,
+                  -0.9092660546302795,
+                  -1.1798299551010132,
+                  11.542823791503906,
+                  -0.8320410847663879,
+                  -0.5614753365516663,
+                  -0.5614753365516663,
+                  -0.5614753365516663,
+                  -0.49780967831611633,
+                  -0.2698947489261627,
+                  -0.2698947489261627,
+                  2.5127211132333196
+                ],
+                [
+                  -1.0361887216567993,
+                  -1.0274543762207031,
+                  -5.353257179260254,
+                  3.2854113578796387,
+                  1.2181105613708496,
+                  -0.9862855076789856,
+                  1.7715243101119995,
+                  3.838824987411499,
+                  3.838824987411499,
+                  3.838824987411499,
+                  8.64364242553711,
+                  -2.0576694011688232,
+                  -2.0576694011688232,
+                  1.0042481641736734
+                ],
+                [
+                  -0.29203224182128906,
+                  -0.2834671437740326,
+                  -0.9215664863586426,
+                  -1.8023399114608765,
+                  2.4418814182281494,
+                  -0.2528756260871887,
+                  3.1191213130950928,
+                  -1.1201491355895996,
+                  -1.1201491355895996,
+                  -1.1201491355895996,
+                  -0.8754488825798035,
+                  4.244515419006348,
+                  4.244515419006348,
+                  0.23568101154949017
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "how are you"
+      ],
+      [
+        "en",
+        "bye"
+      ],
+      [
+        "en",
+        "what is your name"
+      ],
+      [
+        "en",
+        "who are you"
+      ],
+      [
+        "en",
+        "what can you do"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greetings.hello": [
+          {
+            "answer": "Hello!"
+          },
+          {
+            "answer": "Hi!"
+          }
+        ],
+        "greetings.howareyou": [
+          {
+            "answer": "I am fine, thank you!"
+          }
+        ],
+        "greetings.bye": [
+          {
+            "answer": "Goodbye!"
+          }
+        ],
+        "identity.name": [
+          {
+            "answer": "I am a chatbot created using Node.js!"
+          }
+        ],
+        "capabilities": [
+          {
+            "answer": "I can chat with you and answer your questions."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
